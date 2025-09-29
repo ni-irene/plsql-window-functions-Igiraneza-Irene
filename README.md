@@ -28,13 +28,13 @@ customers into four revenue groups.
 
 STEP 3: DATABASE SCHEMA
 
-Table	                   Key Columns	                                                                                Example Row
+Table	                                                Key Columns	                                                                                   Example Row
 
-customers	          customer_id (PK), name, region	                                                             1001, Uwase Diana, Kigali
+customers	                                  customer_id (PK), name, region	                                                             1001, Uwase Diana, Kigali
 
-products	          product_id (PK), name, category                        	                                     2001, Coffee Beans, Beverages
+products	                                 product_id (PK), name, category                        	                                     2001, Coffee Beans, Beverages
 
-transactions	      transaction_id (PK), customer_id (FK), product_id (FK), sale_date, amount	                   3001, 1001, 2001, 2025-07-15, 25000
+transactions	                            transaction_id (PK), customer_id (FK), product_id (FK), sale_date, amount	                   3001, 1001, 2001, 2025-07-15, 25000
 
 
 Entity Relationship Diagram:
@@ -46,11 +46,11 @@ customers.customer_id.
 products.product_id.
 
 Relationships:
-Relationship	                                   Type	                             Explanation
+Relationship	                                                                  Type	                                                   Explanation
 
-Customer  -->Transaction           	One-to-Many (1:M)	                    One Customer can be involved in many Transactions. Each Transactions belongs to only one Customer.
+Customer  -->Transaction                                               	One-to-Many (1:M)	                                                  One Customer can be involved in many Transactions. Each Transactions belongs to only one Customer.
 
-Product  --> Transaction	          One-to-Many (1:M)                     One Product can be sold in many Transactions. Each Transaction involves only one Product. 
+Product  --> Transaction	                                              One-to-Many (1:M)                     One Product can be sold in many Transactions. Each Transaction involves only one Product. 
 
 Detailed diagram Structure:
 
