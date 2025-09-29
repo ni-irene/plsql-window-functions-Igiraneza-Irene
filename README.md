@@ -60,13 +60,11 @@ Detailed diagram Structure:
         VARCHAR name
         VARCHAR region
     }
-    
     products {
         INT product_id PK
         VARCHAR name
         VARCHAR category
     }
-    
     transactions {
         INT transaction_id PK
         INT customer_id FK
