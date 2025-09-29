@@ -55,16 +55,19 @@ Product  --> Transaction	                                              One-to-Ma
 Detailed diagram Structure:
 
 
+
   customers {
         INT customer_id PK
         VARCHAR name
         VARCHAR region
     }
+    
     products {
         INT product_id PK
         VARCHAR name
         VARCHAR category
     }
+    
     transactions {
         INT transaction_id PK
         INT customer_id FK
@@ -72,6 +75,7 @@ Detailed diagram Structure:
         DATE sale_date
         DECIMAL amount
   }
+  
 
 STEP 4: WINDOW FUNCTIONS IMPLEMENTATION
 
