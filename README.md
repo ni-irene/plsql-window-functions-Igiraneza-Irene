@@ -1,18 +1,24 @@
 STEP 1: PROBLEM DEFINITION
+
 Business Context:
 The supermarket company operates multiple branches across different regions, serving a wide variety of customers on a daily basis. With competition in the retail industry increasing, management has realized the importance of data-driven decision-making. By analyzing customer transactions, they hope to understand purchasing behavior, identify their most valuable customers, and track sales performance across time.
+
 Data Challenge:
 Although sales transactions are recorded in the company’s database, managers struggle to extract actionable insights. It is not immediately clear which customers contribute the most revenue, how sales are trending over time, or how to segment customers into meaningful groups for marketing. Relying only on raw sales data makes it difficult to identify growth patterns or to allocate resources effectively.
+
 Expected Outcome:
 Through the use of SQL window functions, the company expects to:
 Rank customers by total revenue, helping to identify top spenders.
 Calculate running daily totals and 7-day moving averages to track overall sales performance while smoothing short-term fluctuations.
 Measure month-over-month growth in customer spending to monitor business momentum.
 Segment customers into quartiles based on total revenue, so that marketing campaigns can be tailored to different customer groups.
+
 By achieving these outcomes, management will be able to focus on high-value customers, forecast sales trends more accurately, and design effective loyalty programs and targeted promotional strategies.
 
 STEP 2: SUCCESS CRITERIA
+
 The following five success criteria define how SQL window functions will be applied to solve the business problem.
+
 1.	Top customers by revenue → using ROW_NUMBER(), RANK(), DENSE_RANK(), and PERCENT_RANK() to identify which customers spend the most.
 2.	Running daily sales totals → using SUM() OVER() to calculate cumulative revenue day by day.
 3.	7-day moving average & trend analysis → using AVG() OVER() with a 7-day rolling window (plus MIN/MAX to check extremes).
@@ -57,6 +63,7 @@ Detailed diagram Structure:
   }
 
 STEP 4: WINDOW FUNCTIONS IMPLEMENTATION
+
 (A)	Ranking (Top N customers by revenue)
 Query:
 SELECT customer_id, SUM(amount) AS total_revenue, ROW_NUMBER() OVER (ORDER BY SUM(amount) DESC) AS rank_row_number, DENSE_RANK() OVER (ORDER BY SUM(amount) DESC) AS rank_dense, PERCENT_RANK() OVER (ORDER BY SUM(amount) DESC) AS rank_percent FROM transactions GROUP BY customer_id ORDER BY total_revenue DESC;
@@ -83,20 +90,34 @@ WITH CustomerRevenue AS (SELECT  customer_id, SUM(amount) AS total_spent FROM  t
 	Interpretation: NTILE(4) divides customers into four equal groups (Q1 = top spenders, Q4 = lowest spenders). CUME_DIST() shows the cumulative share of customers at or below each spending level. This segmentation highlights which customer groups are most valuable, guiding marketing and loyalty strategies to focus on top quartiles.
 
 STEP 6: RESULTS ANALYSIS
+
 Descriptive:
 Daily sales are steadily increasing. A small group of top customers contributes the highest revenue. Customers fall into four clear spending tiers.
+
 Diagnostic:
 Certain customers consistently spend more, creating revenue concentration. Sales spikes appear around certain days, but the 7-day average shows stable upward growth.
+
 Prescriptive:
 Strengthen relationships with top-spending customers through loyalty rewards. Monitor weak-spending groups with promotions to increase activity. Use daily patterns and rolling averages to plan inventory and staffing more effectively.
+
 STEP 7: REFERENCES
+
 •	Oracle Documentation: SQL Window Functions
+
 •	SQLShack Tutorials on Window Functions
+
 •	GeeksforGeeks SQL Window Functions
+
 •	W3Schools SQL Analytics Functions
+
 •	Academic Papers on Business Analytics with SQL
+
 •	DataCamp SQL Window Functions Guide
+
 •	Mode Analytics Window Functions Tutorial
+
 •	PostgreSQL Docs (Window Functions section)
+
 •	TutorialsPoint SQL Analytics
+
 •	StackOverflow SQL Q&A (cited with examples)
