@@ -56,9 +56,8 @@ Detailed diagram Structure:
 
 
 
-  
-  
   customers {
+  
        INT customer_id PK
         VARCHAR name
         VARCHAR region
