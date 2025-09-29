@@ -54,6 +54,7 @@ Product  --> Transaction	                                              One-to-Ma
 
 Detailed diagram Structure:
 
+
   customers {
         INT customer_id PK
         VARCHAR name
