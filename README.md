@@ -56,7 +56,7 @@ Detailed diagram Structure:
 
 
 
-  customers {
+  
   
   customers {
        INT customer_id PK
